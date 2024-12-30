@@ -28,7 +28,8 @@ Payment Details:
 Description: {tenant['payment_description']}
 Amount: ${tenant['payment_amount']:.2f}
 
-If you have any questions, please contact us.
+If you have any questions or need more information, please visit:
+https://segundorentalservices.net/
 
 Thank you!
 Landlord"""
@@ -55,7 +56,7 @@ def check_and_send_email():
     current_time = datetime.now()
     if current_time.day == 1 and current_time.strftime("%H:%M") == "07:00":
         send_emails_to_all_tenants()
-        
+
 
 def schedule_monthly_tasks():
     schedule.every(1).minutes.do(check_and_send_email)
