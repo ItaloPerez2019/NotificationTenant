@@ -1,0 +1,23 @@
+# SMTP Configuration
+SMTP_SERVER=smtppro.zoho.com
+SMTP_PORT=587
+EMAIL_ADDRESS=iperez@segundorentalservices.net
+EMAIL_PASSWORD=zJngXys3ZG3B
+
+# Tenants Information (JSON Array)
+TENANTS_JSON=[
+    {
+        "email": "iperezmba@gmail.com",
+        "name": "Tenant 1",
+        "payment_amount": 2200,
+        "payment_description": "Monthly Rent Payment",
+        "property_location": "123 Main St, Anytown, USA"
+    },
+    {
+        "email": "iperezmba@gmail.com",
+        "name": "Tenant 2",
+        "payment_amount": 1800,
+        "payment_description": "Monthly Rent Payment",
+        "property_location": "456 Elm St, Othertown, USA"
+    }
+]
