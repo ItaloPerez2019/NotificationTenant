@@ -25,9 +25,12 @@ def send_email_reminder(tenant):
 This is a friendly reminder that your rent payment of ${tenant['payment_amount']:.2f} is due soon.
 
 Payment Details:
+Property: {tenant['property_location']}
 Description: {tenant['payment_description']}
 Amount: ${tenant['payment_amount']:.2f}
 
+
+If payment is not received by the 5th day of the month, a 10% late fee will be imposed.
 If you have any questions or need more information, please visit:
 https://segundorentalservices.net/
 
@@ -44,7 +47,7 @@ Landlord"""
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             server.sendmail(EMAIL_ADDRESS, tenant["email"], msg.as_string())
         
-        print(f"Reminder email sent successfully to {tenant['email']}.")
+        print(f"Reminder email sent successfully to {tenant['name']}.")
     except Exception as e:
         print(f"Error sending email to {tenant['email']}: {e}")
 
@@ -54,8 +57,8 @@ def send_emails_to_all_tenants():
 
 def check_and_send_email():
     current_time = datetime.now()
-    if current_time.day == 1 and current_time.strftime("%H:%M") == "07:00":
-        send_emails_to_all_tenants()
+    # if current_time.day == 1 and current_time.strftime("%H:%M") == "07:00":
+    send_emails_to_all_tenants()
 
 
 def schedule_monthly_tasks():
