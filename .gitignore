@@ -6,3 +6,11 @@ ENV/
 env/
 .env/
 .venv/
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+env/
