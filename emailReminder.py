@@ -1,8 +1,6 @@
 import os
 import json
-import schedule
 import smtplib
-import time
 import logging
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -94,7 +92,7 @@ def send_email_reminder(tenant):
             payment_amount = float(tenant['payment_amount'])
         except ValueError:
             logging.error(f"Invalid payment_amount for tenant {
-                          tenant['name']}: {tenant['payment_amount']}")
+                          tenant.get('name', 'Unknown')}: {tenant['payment_amount']}")
             failure_count += 1
             failed_tenants.append({
                 "tenant": tenant.get("name", "Unknown"),
@@ -139,7 +137,7 @@ Landlord"""
 
     except smtplib.SMTPException as smtp_err:
         logging.error(f"SMTP error when sending email to {
-                      tenant['email']}: {smtp_err}")
+                      tenant.get('email', 'Unknown')}: {smtp_err}")
         failure_count += 1
         failed_tenants.append({
             "tenant": tenant.get("name", "Unknown"),
@@ -148,7 +146,7 @@ Landlord"""
         })
     except Exception as e:
         logging.error(f"Unexpected error when sending email to {
-                      tenant['email']}: {e}")
+                      tenant.get('email', 'Unknown')}: {e}")
         failure_count += 1
         failed_tenants.append({
             "tenant": tenant.get("name", "Unknown"),
@@ -159,7 +157,7 @@ Landlord"""
 
 def send_alert_email():
     """
-    Sends an alert email to iperezmba@gmail.com summarizing the email sending results.
+    Sends an alert email to the landlord summarizing the email sending results.
     """
     try:
         subject = "Rent Reminder Emails Sent - Summary"
@@ -211,7 +209,7 @@ Your Automated Email System
 
 def send_log_email():
     """
-    Sends the log file as an attachment to iperezmba@gmail.com.
+    Sends the log file as an attachment to the landlord.
     """
     try:
         subject = "Email Reminder Logs - Execution Summary"
@@ -272,23 +270,14 @@ def send_emails_to_all_tenants():
 
 
 def check_and_send_email():
-    current_time = datetime.now()
-    # Uncomment and adjust the following condition to schedule at a specific time
-    # if current_time.day == 1 and current_time.strftime("%H:%M") == "07:00":
+    """
+    Executes the entire email sending process: reminders, alerts, and logs.
+    """
     send_emails_to_all_tenants()
     send_alert_email()
     send_log_email()
 
 
-def schedule_monthly_tasks():
-    # For testing purposes, schedule every minute. Change to desired frequency.
-    schedule.every(1).minutes.do(check_and_send_email)
-    print("Scheduled monthly reminders.")
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-
 if __name__ == "__main__":
-    schedule_monthly_tasks()
+    check_and_send_email()
+    logging.info("Script execution completed.")

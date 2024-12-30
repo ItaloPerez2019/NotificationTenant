@@ -1,16 +1,6 @@
-2024-12-29 21:46:01,941 - INFO - Script started.
-2024-12-29 21:47:03,708 - INFO - Reminder email sent successfully to Tenant 1 (123 Main St, Anytown, USA).
-2024-12-29 21:47:04,998 - INFO - Reminder email sent successfully to Tenant 2 (456 Elm St, Othertown, USA).
-2024-12-29 21:49:05,490 - INFO - Script started.
-2024-12-29 21:49:06,762 - INFO - Log email sent successfully to the landlord.
-2024-12-29 21:50:08,158 - INFO - Reminder email sent successfully to Tenant 1 (123 Main St, Anytown, USA).
-2024-12-29 21:50:09,250 - INFO - Reminder email sent successfully to Tenant 2 (456 Elm St, Othertown, USA).
-2024-12-29 21:50:29,866 - INFO - Script started.
-2024-12-29 21:50:31,100 - INFO - Log email sent successfully to the landlord.
-2024-12-29 21:51:32,554 - INFO - Reminder email sent successfully to Tenant 1 (123 Main St, Anytown, USA).
-2024-12-29 21:51:33,689 - INFO - Reminder email sent successfully to Tenant 2 (456 Elm St, Othertown, USA).
-2024-12-29 21:52:26,384 - INFO - Script started.
-2024-12-29 21:53:27,825 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-29 21:53:28,983 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2024-12-29 21:53:30,156 - INFO - Alert email sent successfully to the landlord.
-2024-12-29 21:53:31,348 - INFO - Log email sent successfully to the landlord.
+2024-12-30 10:27:35,476 - INFO - Script started.
+2024-12-30 10:27:36,622 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
+2024-12-30 10:27:37,742 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2024-12-30 10:27:38,866 - INFO - Alert email sent successfully to the landlord.
+2024-12-30 10:27:40,127 - INFO - Log email sent successfully to the landlord.
+2024-12-30 10:27:40,127 - INFO - Script execution completed.
