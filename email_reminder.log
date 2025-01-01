@@ -1,49 +1,19 @@
-2024-12-30 10:27:35,476 - INFO - Script started.
-2024-12-30 10:27:36,622 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-30 10:27:37,742 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2024-12-30 10:27:38,866 - INFO - Alert email sent successfully to the landlord.
-2024-12-30 10:27:40,127 - INFO - Log email sent successfully to the landlord.
-2024-12-30 10:27:40,127 - INFO - Script execution completed.
-2024-12-30 14:39:05,239 - INFO - Script started.
-2024-12-30 14:39:07,112 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-30 14:39:08,947 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2024-12-30 14:39:10,621 - INFO - Alert email sent successfully to the landlord.
-2024-12-30 14:39:12,454 - INFO - Log email sent successfully to the landlord.
-2024-12-30 14:39:12,454 - INFO - Script execution completed.
-2024-12-30 19:41:44,629 - INFO - Script started.
-2024-12-30 19:41:47,184 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-30 19:41:49,730 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2024-12-30 19:41:51,119 - INFO - Alert email sent successfully to the landlord.
-2024-12-30 19:41:52,466 - INFO - Log email sent successfully to the landlord.
-2024-12-30 19:41:52,467 - INFO - Script execution completed.
-2024-12-30 19:44:01,971 - INFO - Script started.
-2024-12-30 19:44:04,246 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-30 19:44:05,652 - INFO - Reminder email sent successfully to Tenant 2 (ipedsdrezmba@gmail.com).
-2024-12-30 19:44:06,904 - INFO - Alert email sent successfully to the landlord.
-2024-12-30 19:44:08,157 - INFO - Log email sent successfully to the landlord.
-2024-12-30 19:44:08,158 - INFO - Script execution completed.
-2024-12-30 19:44:42,990 - INFO - Script started.
-2024-12-30 19:44:45,228 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2024-12-30 19:44:46,713 - INFO - Reminder email sent successfully to Tenant 2 (iperez@dtxplus.com).
-2024-12-30 19:44:47,939 - INFO - Alert email sent successfully to the landlord.
-2024-12-30 19:44:49,193 - INFO - Log email sent successfully to the landlord.
-2024-12-30 19:44:49,193 - INFO - Script execution completed.
-2025-01-01 16:26:02,694 - INFO - Script started.
-2025-01-01 16:26:04,369 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2025-01-01 16:26:05,905 - INFO - Reminder email sent successfully to Tenant 2 (iperez@dtxplus.com).
-2025-01-01 16:26:07,656 - INFO - Alert email sent successfully to the landlord.
-2025-01-01 16:26:11,056 - INFO - Log email sent successfully to the landlord.
-2025-01-01 16:26:11,056 - INFO - Script execution completed.
-2025-01-01 16:27:48,488 - INFO - Script started.
-2025-01-01 16:27:49,705 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2025-01-01 16:27:51,084 - INFO - Reminder email sent successfully to Tenant 2 (iperez@dtxplus.com).
-2025-01-01 16:27:59,110 - INFO - Script started.
-2025-01-01 16:28:00,367 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2025-01-01 16:28:03,129 - INFO - Reminder email sent successfully to Tenant 2 (iperez@dtxplus.com).
-2025-01-01 16:28:04,358 - INFO - Log email sent successfully to the landlord.
-2025-01-01 16:28:04,358 - INFO - Script execution completed.
-2025-01-01 16:31:04,280 - INFO - Script started.
-2025-01-01 16:31:05,591 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2025-01-01 16:31:06,815 - INFO - Reminder email sent successfully to Tenant 2 (iperez@dtxplus.com).
-2025-01-01 16:31:08,216 - INFO - Log email sent successfully to the landlord.
-2025-01-01 16:31:08,217 - INFO - Script execution completed.
+
+2025-01-01 17:02:16,478 - INFO - Script started.
+2025-01-01 17:02:16,479 - INFO - Loaded TENANTS: [{'email': 'iperezmba@gmail.com', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-01 17:02:18,502 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
+2025-01-01 17:02:20,289 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-01 17:02:21,968 - INFO - Log email sent successfully to the landlord.
+2025-01-01 17:02:21,969 - INFO - Script execution completed.
+2025-01-01 17:03:24,581 - INFO - Script started.
+2025-01-01 17:03:24,582 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-01 17:03:26,408 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
+2025-01-01 17:03:27,626 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-01 17:03:28,830 - INFO - Log email sent successfully to the landlord.
+2025-01-01 17:03:28,830 - INFO - Script execution completed.
+2025-01-01 17:05:05,324 - INFO - Script started.
+2025-01-01 17:05:05,326 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-01 17:05:06,661 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
+2025-01-01 17:05:08,045 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-01 17:05:09,291 - INFO - Log email sent successfully to the landlord.
+2025-01-01 17:05:09,291 - INFO - Script execution completed.

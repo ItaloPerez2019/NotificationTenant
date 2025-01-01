@@ -5,7 +5,6 @@ import logging
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
-from datetime import datetime
 from dotenv import load_dotenv
 
 # Get the absolute path for the log file in the script's directory
@@ -33,33 +32,49 @@ SMTP_SERVER = os.getenv("SMTP_SERVER")
 SMTP_PORT = os.getenv("SMTP_PORT")
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+LANDLORD_EMAIL = os.getenv("LANDLORD_EMAIL")
 
 # Validate SMTP details
-if not SMTP_SERVER or not SMTP_PORT or not EMAIL_ADDRESS or not EMAIL_PASSWORD:
-    logging.error("One or more SMTP environment variables are missing.")
+missing_smtp_vars = []
+for var_name, var_value in [
+    ("SMTP_SERVER", SMTP_SERVER),
+    ("SMTP_PORT", SMTP_PORT),
+    ("EMAIL_ADDRESS", EMAIL_ADDRESS),
+    ("EMAIL_PASSWORD", EMAIL_PASSWORD),
+    ("LANDLORD_EMAIL", LANDLORD_EMAIL)
+]:
+    if not var_value:
+        missing_smtp_vars.append(var_name)
+
+if missing_smtp_vars:
+    logging.error(f"Missing SMTP environment variables: {
+                  ', '.join(missing_smtp_vars)}.")
     exit(1)
+
+# Validate TENANTS environment variable
+TENANTS_ENV = os.getenv("TENANTS")
+if not TENANTS_ENV:
+    logging.error("TENANTS environment variable is missing.")
+    TENANTS = []
+else:
+    try:
+        TENANTS = json.loads(TENANTS_ENV)
+        if not isinstance(TENANTS, list):
+            logging.error(
+                "TENANTS environment variable should be a JSON array of tenant objects.")
+            TENANTS = []
+    except json.JSONDecodeError as e:
+        logging.error(
+            f"TENANTS environment variable contains invalid JSON: {e}")
+        TENANTS = []
+
+logging.info(f"Loaded TENANTS: {TENANTS}")
 
 try:
     SMTP_PORT = int(SMTP_PORT)
 except ValueError:
     logging.error(f"Invalid SMTP_PORT value: {SMTP_PORT}")
     exit(1)
-
-# Load TENANTS from tenants.json file
-tenants_file_path = os.path.join(script_dir, "tenants.json")
-try:
-    with open(tenants_file_path, 'r') as file:
-        TENANTS = json.load(file)
-        if not isinstance(TENANTS, list):
-            logging.error(
-                "tenants.json should be a JSON array of tenant objects.")
-            TENANTS = []
-except FileNotFoundError:
-    logging.error(f"tenants.json file not found at {tenants_file_path}.")
-    TENANTS = []
-except json.JSONDecodeError as e:
-    logging.error(f"tenants.json is not a valid JSON file: {e}")
-    TENANTS = []
 
 # Initialize counters and lists for tracking
 success_count = 0
@@ -76,16 +91,18 @@ def send_email_reminder(tenant):
         # Validate required tenant fields
         required_fields = ["email", "name",
                            "payment_amount", "payment_description"]
-        for field in required_fields:
-            if field not in tenant:
-                logging.error(f"Missing '{field}' in tenant data: {tenant}")
-                failure_count += 1
-                failed_tenants.append({
-                    "tenant": tenant.get("name", "Unknown"),
-                    "email": tenant.get("email", "Unknown"),
-                    "reason": f"Missing field: {field}"
-                })
-                return
+        missing_fields = [
+            field for field in required_fields if field not in tenant]
+        if missing_fields:
+            logging.error(f"Missing fields {
+                          missing_fields} in tenant data: {tenant}")
+            failure_count += 1
+            failed_tenants.append({
+                "tenant": tenant.get("name", "Unknown"),
+                "email": tenant.get("email", "Unknown"),
+                "reason": f"Missing fields: {', '.join(missing_fields)}"
+            })
+            return
 
         # Ensure payment_amount is a float
         try:
@@ -110,7 +127,6 @@ Payment Details:
 Property: {tenant.get('property_location', 'N/A')}
 Description: {tenant['payment_description']}
 Amount: ${payment_amount:.2f}
-
 
 If payment is not received by the 5th day of the month, a 10% late fee will be imposed.
 If you have any questions or need more information, please visit:
@@ -173,32 +189,32 @@ Your Automated Email System
         msg = MIMEMultipart()
         msg["Subject"] = subject
         msg["From"] = EMAIL_ADDRESS
-        msg["To"] = 'iperezmba@gmail.com'  # Updated recipient
+        msg["To"] = LANDLORD_EMAIL
 
         # Attach the body text
         msg.attach(MIMEText(body, "plain"))
 
         # Attach the log file
-        with open(log_file_path, "rb") as log_file:
-            part = MIMEApplication(
-                log_file.read(), Name=os.path.basename(log_file_path))
-            # After the file is closed
-            part['Content-Disposition'] = f'attachment; filename="{
-                os.path.basename(log_file_path)}"'
-            msg.attach(part)
+        if os.path.isfile(log_file_path):
+            with open(log_file_path, "rb") as log_file:
+                part = MIMEApplication(
+                    log_file.read(), Name=os.path.basename(log_file_path))
+                part['Content-Disposition'] = f'attachment; filename="{
+                    os.path.basename(log_file_path)}"'
+                msg.attach(part)
+        else:
+            logging.error(f"Log file not found at {
+                          log_file_path}. Cannot attach to log email.")
 
         # Send log email
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.sendmail(EMAIL_ADDRESS, 'iperezmba@gmail.com',
+            server.sendmail(EMAIL_ADDRESS, LANDLORD_EMAIL,
                             msg.as_string())  # Updated recipient
 
         logging.info("Log email sent successfully to the landlord.")
 
-    except FileNotFoundError:
-        logging.error(f"Log file not found at {
-                      log_file_path}. Cannot send log email.")
     except smtplib.SMTPException as smtp_err:
         logging.error(f"SMTP error when sending log email: {smtp_err}")
     except Exception as e:
@@ -219,7 +235,7 @@ def send_emails_to_all_tenants():
 
 def check_and_send_email():
     """
-    Executes the entire email sending process: reminders, alerts, and logs.
+    Executes the entire email sending process: reminders and logs.
     """
     send_emails_to_all_tenants()
     send_log_email()

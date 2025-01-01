@@ -3,7 +3,7 @@
 # Virtual environment
 venv/
 ENV/
-env/
+
 .env/
 .venv/
 
@@ -13,4 +13,3 @@ env/
 # virtualenv
 venv/
 ENV/
-env/
