@@ -155,58 +155,6 @@ Landlord"""
         })
 
 
-def send_alert_email():
-    """
-    Sends an alert email to the landlord summarizing the email sending results.
-    """
-    try:
-        subject = "Rent Reminder Emails Sent - Summary"
-        body = f"""Hello,
-
-All rent reminder emails have been processed.
-
-Summary:
-- Total Tenants: {len(TENANTS)}
-- Successfully Sent: {success_count}
-- Failed to Send: {failure_count}
-
-"""
-        if failure_count > 0:
-            body += "Failed Tenants:\n"
-            for failed in failed_tenants:
-                body += f"- {failed['tenant']
-                             } ({failed['email']}): {failed['reason']}\n"
-
-        body += """
-
-Best regards,
-Your Automated Email System
-"""
-
-        # Create email message
-        msg = MIMEMultipart()
-        msg["Subject"] = subject
-        msg["From"] = EMAIL_ADDRESS
-        msg["To"] = 'iperezmba@gmail.com'  # Updated recipient
-
-        # Attach the body text
-        msg.attach(MIMEText(body, "plain"))
-
-        # Send alert email
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.sendmail(EMAIL_ADDRESS, 'iperezmba@gmail.com',
-                            msg.as_string())  # Updated recipient
-
-        logging.info("Alert email sent successfully to the landlord.")
-
-    except smtplib.SMTPException as smtp_err:
-        logging.error(f"SMTP error when sending alert email: {smtp_err}")
-    except Exception as e:
-        logging.error(f"Unexpected error when sending alert email: {e}")
-
-
 def send_log_email():
     """
     Sends the log file as an attachment to the landlord.
@@ -274,7 +222,6 @@ def check_and_send_email():
     Executes the entire email sending process: reminders, alerts, and logs.
     """
     send_emails_to_all_tenants()
-    send_alert_email()
     send_log_email()
 
 
