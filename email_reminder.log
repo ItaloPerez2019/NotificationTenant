@@ -1,61 +1,13 @@
 
-2025-01-01 17:02:16,478 - INFO - Script started.
-2025-01-01 17:02:16,479 - INFO - Loaded TENANTS: [{'email': 'iperezmba@gmail.com', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-01 17:02:18,502 - INFO - Reminder email sent successfully to Tenant 1 (iperezmba@gmail.com).
-2025-01-01 17:02:20,289 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-01 17:02:21,968 - INFO - Log email sent successfully to the landlord.
-2025-01-01 17:02:21,969 - INFO - Script execution completed.
-2025-01-01 17:03:24,581 - INFO - Script started.
-2025-01-01 17:03:24,582 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-01 17:03:26,408 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-01 17:03:27,626 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-01 17:03:28,830 - INFO - Log email sent successfully to the landlord.
-2025-01-01 17:03:28,830 - INFO - Script execution completed.
-2025-01-01 17:05:05,324 - INFO - Script started.
-2025-01-01 17:05:05,326 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-01 17:05:06,661 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-01 17:05:08,045 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-01 17:05:09,291 - INFO - Log email sent successfully to the landlord.
-2025-01-01 17:05:09,291 - INFO - Script execution completed.
-2025-01-02 08:31:09,633 - INFO - Script started.
-2025-01-02 08:31:09,634 - ERROR - TENANTS environment variable contains invalid JSON: Expecting value: line 1 column 1 (char 0)
-2025-01-02 08:31:09,634 - INFO - Loaded TENANTS: []
-2025-01-02 08:31:09,634 - WARNING - No tenants found to send emails.
-2025-01-02 08:31:10,945 - INFO - Log email sent successfully to the landlord.
-2025-01-02 08:31:10,945 - INFO - Script execution completed.
-2025-01-02 08:31:41,707 - INFO - Script started.
-2025-01-02 08:31:41,708 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 08:31:42,927 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 08:31:44,256 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 08:31:46,075 - INFO - Log email sent successfully to the landlord.
-2025-01-02 08:31:46,076 - INFO - Script execution completed.
-2025-01-02 09:09:08,945 - INFO - Script started.
-2025-01-02 09:09:08,946 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 09:09:11,235 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 09:09:12,475 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 09:09:13,730 - INFO - Log email sent successfully to the landlord.
-2025-01-02 09:09:13,730 - INFO - Script execution completed.
-2025-01-02 09:11:13,720 - INFO - Script started.
-2025-01-02 09:11:13,721 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 09:11:15,226 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 09:11:16,467 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 09:11:18,378 - INFO - Log email sent successfully to the landlord.
-2025-01-02 09:11:18,378 - INFO - Script execution completed.
-2025-01-02 09:12:26,666 - INFO - Script started.
-2025-01-02 09:12:26,667 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 09:12:28,021 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 09:12:29,480 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 09:12:30,789 - INFO - Log email sent successfully to the landlord.
-2025-01-02 09:12:30,790 - INFO - Script execution completed.
-2025-01-02 09:16:15,457 - INFO - Script started.
-2025-01-02 09:16:15,458 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 09:16:17,032 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 09:16:18,605 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 09:16:19,861 - INFO - Log email sent successfully to the landlord.
-2025-01-02 09:16:19,862 - INFO - Script execution completed.
-2025-01-02 09:17:28,134 - INFO - Script started.
-2025-01-02 09:17:28,135 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
-2025-01-02 09:17:29,420 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
-2025-01-02 09:17:30,714 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
-2025-01-02 09:17:32,030 - INFO - Log email sent successfully to the landlord.
-2025-01-02 09:17:32,030 - INFO - Script execution completed.
+2025-01-02 09:40:03,250 - INFO - Script started.
+2025-01-02 09:40:03,251 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-02 09:40:04,977 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
+2025-01-02 09:40:06,364 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-02 09:40:07,672 - INFO - Log email sent successfully to the landlord.
+2025-01-02 09:40:07,673 - INFO - Script execution completed.
+2025-01-02 09:41:40,690 - INFO - Script started.
+2025-01-02 09:41:40,691 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-02 09:41:42,621 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
+2025-01-02 09:41:43,884 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-02 09:41:45,408 - INFO - Log email sent successfully to the landlord.
+2025-01-02 09:41:45,408 - INFO - Script execution completed.

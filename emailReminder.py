@@ -148,9 +148,6 @@ def send_email_reminder(tenant):
                 If payment is not received by the 5th day of the month, a 10% late fee will be imposed.
             </p>
             <p>
-                If you have any questions or need more information, please visit:
-                <a href="https://segundorentalservices.net/" style="color: #1a0dab; text-decoration: none;">https://segundorentalservices.net/</a>
-            </p>
             <!-- Buttons Section -->
             <p>
                 <a href="https://app.payrent.com/sign-in"
@@ -166,6 +163,9 @@ def send_email_reminder(tenant):
                    ">
                     Pay Now
                 </a>
+            </p>
+                If you have any questions or need more information, please visit:
+                <a href="https://segundorentalservices.net/" style="color: #1a0dab; text-decoration: none;">https://segundorentalservices.net/</a>
             </p>
             <p>Thank you!<br><br>Have a great day!</p>
         </body>
