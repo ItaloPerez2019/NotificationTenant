@@ -87,6 +87,9 @@ failed_tenants = []
 def send_email_reminder(tenant):
     """
     Sends a rent payment reminder email to a single tenant.
+
+    Args:
+        tenant (dict): A dictionary containing tenant information.
     """
     global success_count, failure_count, failed_tenants
     try:
@@ -109,59 +112,95 @@ def send_email_reminder(tenant):
         # Ensure payment_amount is a float
         try:
             payment_amount = float(tenant['payment_amount'])
-        except ValueError:
-            logging.error(f"Invalid payment_amount for tenant {
-                          tenant.get('name', 'Unknown')}: {tenant['payment_amount']}")
+        except (ValueError, TypeError):
+            logging.error(f"Invalid payment_amount for tenant {tenant.get(
+                'name', 'Unknown')}: {tenant.get('payment_amount')}")
             failure_count += 1
             failed_tenants.append({
                 "tenant": tenant.get("name", "Unknown"),
                 "email": tenant.get("email", "Unknown"),
-                "reason": f"Invalid payment_amount: {tenant['payment_amount']}"
+                "reason": f"Invalid payment_amount: {tenant.get('payment_amount')}"
             })
             return
 
         subject = "Rent Payment Reminder"
-        body = f"""Dear {tenant['name']},
 
-This is a friendly reminder that your rent payment of ${payment_amount:.2f} is due soon.
-
-Payment Details:
-Property: {tenant.get('property_location', 'N/A')}
-Description: {tenant['payment_description']}
-Amount: ${payment_amount:.2f}
-
-If payment is not received by the 5th day of the month, a 10% late fee will be imposed.
-If you have any questions or need more information, please visit:
-https://segundorentalservices.net/
-
-Thank you!
-Landlord"""
+        # HTML content with embedded banner and clickable buttons
+        body = f"""\
+        <html>
+        <head>
+            <style>
+                /* Fallback styles can be placed here */
+            </style>
+        </head>
+        <body>
+            <p>Dear {tenant['name']},</p>
+            <p>
+                This is a friendly reminder that your rent payment of <strong>${payment_amount:.2f}</strong> is due soon.
+            </p>
+            <p>
+                <strong>Payment Details:</strong><br>
+                Property: {tenant.get('property_location', 'N/A')}<br>
+                Description: {tenant['payment_description']}<br>
+                Amount: <strong>${payment_amount:.2f}</strong>
+            </p>
+            <p>
+                If payment is not received by the 5th day of the month, a 10% late fee will be imposed.
+            </p>
+            <p>
+                If you have any questions or need more information, please visit:
+                <a href="https://segundorentalservices.net/" style="color: #1a0dab; text-decoration: none;">https://segundorentalservices.net/</a>
+            </p>
+            <!-- Buttons Section -->
+            <p>
+                <a href="https://app.payrent.com/sign-in"
+                   style="
+                       display: inline-block;
+                       padding: 10px 20px;
+                       font-size: 16px;
+                       color: #ffffff;
+                       background-color: #ff9500;
+                       text-decoration: none;
+                       border-radius: 5px;
+                       margin-right: 10px;
+                   ">
+                    Pay Now
+                </a>
+            </p>
+            <p>Thank you!<br><br>Have a great day!</p>
+        </body>
+        </html>
+        """
 
         # Create email message
-        msg = MIMEText(body)
+        msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
         msg["From"] = EMAIL_ADDRESS
         msg["To"] = tenant["email"]
 
+        # Attach the HTML content
+        msg.attach(MIMEText(body, "html"))
+
         # Send email
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.sendmail(EMAIL_ADDRESS, tenant["email"], msg.as_string())
+        try:
+            with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+                server.starttls()
+                server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                server.sendmail(
+                    EMAIL_ADDRESS, tenant["email"], msg.as_string())
+            logging.info(f"Reminder email sent successfully to {
+                         tenant['name']} ({tenant['email']}).")
+            success_count += 1
+        except smtplib.SMTPException as smtp_err:
+            logging.error(f"SMTP error when sending email to {
+                          tenant.get('email', 'Unknown')}: {smtp_err}")
+            failure_count += 1
+            failed_tenants.append({
+                "tenant": tenant.get("name", "Unknown"),
+                "email": tenant.get("email", "Unknown"),
+                "reason": f"SMTP error: {smtp_err}"
+            })
 
-        logging.info(f"Reminder email sent successfully to {
-                     tenant['name']} ({tenant['email']}).")
-        success_count += 1
-
-    except smtplib.SMTPException as smtp_err:
-        logging.error(f"SMTP error when sending email to {
-                      tenant.get('email', 'Unknown')}: {smtp_err}")
-        failure_count += 1
-        failed_tenants.append({
-            "tenant": tenant.get("name", "Unknown"),
-            "email": tenant.get("email", "Unknown"),
-            "reason": f"SMTP error: {smtp_err}"
-        })
     except Exception as e:
         logging.error(f"Unexpected error when sending email to {
                       tenant.get('email', 'Unknown')}: {e}")
