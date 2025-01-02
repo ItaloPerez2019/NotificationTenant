@@ -24,6 +24,8 @@ logging.basicConfig(
 
 logging.info("Script started.")
 
+os.environ.clear()
+
 # Load environment variables from .env file
 load_dotenv()
 

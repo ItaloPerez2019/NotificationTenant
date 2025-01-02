@@ -17,3 +17,15 @@
 2025-01-01 17:05:08,045 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
 2025-01-01 17:05:09,291 - INFO - Log email sent successfully to the landlord.
 2025-01-01 17:05:09,291 - INFO - Script execution completed.
+2025-01-02 08:31:09,633 - INFO - Script started.
+2025-01-02 08:31:09,634 - ERROR - TENANTS environment variable contains invalid JSON: Expecting value: line 1 column 1 (char 0)
+2025-01-02 08:31:09,634 - INFO - Loaded TENANTS: []
+2025-01-02 08:31:09,634 - WARNING - No tenants found to send emails.
+2025-01-02 08:31:10,945 - INFO - Log email sent successfully to the landlord.
+2025-01-02 08:31:10,945 - INFO - Script execution completed.
+2025-01-02 08:31:41,707 - INFO - Script started.
+2025-01-02 08:31:41,708 - INFO - Loaded TENANTS: [{'email': 'iperez@segundorentalservices.net', 'name': 'Tenant 1', 'payment_amount': 2200, 'payment_description': 'Monthly Rent Payment', 'property_location': '80 Lawrence St, New Brunswick, NJ 08901'}, {'email': 'iperezmba@gmail.com', 'name': 'Tenant 2', 'payment_amount': 1800, 'payment_description': 'Monthly Rent Payment', 'property_location': '4207 Birchwood Ct, North Brunswick, NJ 08902'}]
+2025-01-02 08:31:42,927 - INFO - Reminder email sent successfully to Tenant 1 (iperez@segundorentalservices.net).
+2025-01-02 08:31:44,256 - INFO - Reminder email sent successfully to Tenant 2 (iperezmba@gmail.com).
+2025-01-02 08:31:46,075 - INFO - Log email sent successfully to the landlord.
+2025-01-02 08:31:46,076 - INFO - Script execution completed.
